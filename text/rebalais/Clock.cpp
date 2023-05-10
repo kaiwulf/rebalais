@@ -1,9 +1,11 @@
 #include "Rebalais.h"
+#include "Clock.h"
 
 long int Clock::set_curr_time() {
-    struct timeval current_tv;
-    gettimeofday(&current_tv, NULL);
-    m_prevoius_time = current_tv.tv_sec*ONE_K + current_tv.tv_nsec/ONE_MIL;
+    struct timespec current_tv;
+    clock_gettime(CLOCK_REALTIME, &current_tv);
+    m_previous_time = current_tv.tv_sec*ONE_K + current_tv.tv_nsec/ONE_MIL;
+    return m_previous_time;
 }
 
 Clock::Clock() {
@@ -23,6 +25,6 @@ long int Clock::delta() {
     return elapsed_time;
 }
 
-long int Clock::split() {
-
+long int Clock::split() const {
+    return m_previous_time;
 }

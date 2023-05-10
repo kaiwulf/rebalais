@@ -6,11 +6,11 @@
 class Clock {
     public:
         Clock();
-        void set_curr_time();
+        long int set_curr_time();
         long int delta();
         long int split() const;
     private:
-        long int m_prevoius_time;
+        long int m_previous_time;
 };
 
 #endif

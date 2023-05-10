@@ -12,7 +12,7 @@
 #include <string>
 
 // Engine includes.
-#include "Event.h"
+// #include "Event.h"
 
 namespace rs {  // namespace rs for rebalais
 
@@ -40,7 +40,7 @@ namespace rs {  // namespace rs for rebalais
 
             // Send event to all interested Objects.
             // Return count of number of events sent.
-            int onEvent(const Event *p_event) const;
+            // int onEvent(const Event *p_event) const;
 
         protected:
             // Set type identifier of Manager.

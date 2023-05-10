@@ -9,10 +9,13 @@
 #define __LOG_MANAGER_H__
 
 // Engine includes.
-#include "Rebalais.h"
+// #include "Rebalais.h"
 
 // Two-letter acronym for easier access to manager.
-#define LM rs::LogManager::getInstance()
+// #define LM rs::LogManager::getInstance()
+
+#include <stdio.h>
+#include "Manager.h"
 
 namespace rs {
 
@@ -37,8 +40,7 @@ class LogManager : public Manager {
         // Write to logfile.
         // Supports printf() formatting of strings.
         // Return number of bytes written (excluding prepends), -1 if error.
-        template<class ... Args>
-        int LogManager::writeLog(int log_level, std::string msg, std::string fmt, Args ... args) const
+        int writeLog(const char *fmt, ...) const;
 
         // Set flush of logfile after each write.
         void setFlush(bool new_do_flush=true);
